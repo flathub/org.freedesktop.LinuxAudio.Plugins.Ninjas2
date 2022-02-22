@@ -17,7 +17,8 @@
                 "make"
             ],
             "post_install": [
-                "install -Dm644 --target-directory=${FLATPAK_DEST}/lxvst/ bin/ninjas2-vst.so",
+                "ln -sf vst $FLATPAK_DEST/lxvst",
+                "install -Dm644 --target-directory=${FLATPAK_DEST}/vst/ bin/ninjas2-vst.so",
                 "install -Dm644 --target-directory=${FLATPAK_DEST}/lv2/ninjas2.lv2 bin/ninjas2.lv2/*",
                 "install -Dm644 --target-directory=${FLATPAK_DEST}/share/metainfo org.freedesktop.LinuxAudio.Plugins.Ninjas2.metainfo.xml",
                 "appstream-compose --basename=org.freedesktop.LinuxAudio.Plugins.Ninjas2 --prefix=${FLATPAK_DEST} --origin=flatpak org.freedesktop.LinuxAudio.Plugins.Ninjas2",
